@@ -1,0 +1,106 @@
+---
+title: "Programa de Prevención & Control del Dengue | 2025"
+format: 
+  dashboard:
+      nav-buttons: [twitter, github, facebook]
+theme: custom.scss
+---
+
+```{r setup}
+library(sf)
+mapview::mapviewOptions(default = TRUE,
+                        basemaps.color.shuffle = FALSE)
+load("/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2025/8.RData/denmex_2025.RData")
+library(magrittr)
+```
+
+# [**Cadenas de Transmisión**]{style="font-size:8pt"}
+
+::: panel-tabset
+
+
+### [**Heroica Puebla de Zaragoza**]{style="color:#990000"}
+
+```{r chain_puebla}
+denhotspots::transmission_chains_map(geocoded_dataset = z,
+                                     cve_edo = "21",
+                                     locality = "Heroica Puebla de Zaragoza",
+                                     dengue_cases = "Probable")
+```
+
+
+
+### [**Tehuacán**]{style="color:#990000"}
+
+```{r chain_tehuacan}
+denhotspots::transmission_chains_map(geocoded_dataset = z,
+                                     cve_edo = "21",
+                                     locality = "Tehuacan",
+                                     dengue_cases = "Probable")
+```
+
+
+### [**Izucar de Matamoros**]{style="color:#990000"}
+
+```{r chain_izucar}
+denhotspots::transmission_chains_map(geocoded_dataset = z,
+                                     cve_edo = "21",
+                                     locality = "Izucar de Matamoros",
+                                     dengue_cases = "Probable")
+```
+
+
+
+:::
+
+
+# [**Mapas de Calor**]{style="font-size:8pt"}
+
+::: panel-tabset
+
+
+### [**Heroica Puebla de Zaragoza**]{style="color:#990000"}
+```{r heatmap_puebla}
+densnv::mp_heatmap(geocoded_datasets = z,
+                   cve_edo = "21",
+                   locality = "Heroica Puebla de Zaragoza",
+                   status_caso = c(1, 2),
+                   week = c(1:53),
+                   zoom = NULL,
+                   map_type = NULL,
+                   alpha = 0.6,
+                   static = FALSE,
+                   palette = viridis::turbo)
+```
+
+### [**Tehuacán**]{style="color:#990000"}
+```{r heatmap_tehuacan}
+densnv::mp_heatmap(geocoded_datasets = z,
+                   cve_edo = "21",
+                   locality = "Tehuacan",
+                   status_caso = c(1, 2),
+                   week = c(1:53),
+                   zoom = NULL,
+                   map_type = NULL,
+                   alpha = 0.6,
+                   static = FALSE,
+                   palette = viridis::turbo)
+```
+
+### [**Izucar de Matamoros**]{style="color:#990000"}
+```{r heatmap_izucar}
+densnv::mp_heatmap(geocoded_datasets = z,
+                   cve_edo = "21",
+                   locality = "Izucar de Matamoros",
+                   status_caso = c(1, 2),
+                   week = c(1:53),
+                   zoom = NULL,
+                   map_type = NULL,
+                   alpha = 0.6,
+                   static = FALSE,
+                   palette = viridis::turbo)
+```
+
+
+
+:::
