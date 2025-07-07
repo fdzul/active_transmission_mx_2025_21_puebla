@@ -10,7 +10,8 @@ theme: custom.scss
 library(sf)
 mapview::mapviewOptions(default = TRUE,
                         basemaps.color.shuffle = FALSE)
-load("/Users/felipedzul/OneDrive/proyects/geocoding_mex/2025/8.RData/denmex_2025.RData")
+#load("/Users/felipedzul/OneDrive/proyects/geocoding_mex/2025/8.RData/denmex_2025.RData")
+load("~/Documents/geocoding_mx/2025/8.RData/denmex_2025.RData")
 library(magrittr)
 ```
 
@@ -61,7 +62,7 @@ denhotspots::transmission_chains_map(geocoded_dataset = z,
 
 ### [**Heroica Puebla de Zaragoza**]{style="color:#990000"}
 ```{r heatmap_puebla}
-densnv::mp_heatmap(geocoded_datasets = z,
+densnv::mp_heatmap(geocoded_dataset = z,
                    cve_edo = "21",
                    locality = "Heroica Puebla de Zaragoza",
                    status_caso = c(1, 2),
@@ -76,7 +77,7 @@ densnv::mp_heatmap(geocoded_datasets = z,
 
 ### [**Tehuacán**]{style="color:#990000"}
 ```{r heatmap_tehuacan}
-densnv::mp_heatmap(geocoded_datasets = z,
+densnv::mp_heatmap(geocoded_dataset = z,
                    cve_edo = "21",
                    locality = "Tehuacan",
                    status_caso = c(1, 2),
@@ -91,7 +92,7 @@ densnv::mp_heatmap(geocoded_datasets = z,
 
 ### [**Izucar de Matamoros**]{style="color:#990000"}
 ```{r heatmap_izucar}
-densnv::mp_heatmap(geocoded_datasets = z,
+densnv::mp_heatmap(geocoded_dataset = z,
                    cve_edo = "21",
                    locality = "Izucar de Matamoros",
                    status_caso = c(1, 2),
